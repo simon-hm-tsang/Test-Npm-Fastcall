@@ -2,11 +2,12 @@
   "name": "test_npm_fastcall",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "src/Test.js",
   "author": "",
+  "scripts": { 
+    "Start": "node src/Test.js",
+    "Gcc": "gcc -shared -fPIC -o src/SharedObject.so src/SharedObject.cpp"
+  },
   "license": "ISC",
   "dependencies": {
     "fastcall": "^0.2.6"

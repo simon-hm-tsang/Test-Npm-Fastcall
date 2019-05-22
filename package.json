@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/Test.js",
   "author": "",
-  "scripts": { 
+  "scripts": {
     "Start": "node src/Test.js",
     "Gcc": "gcc -shared -fPIC -o src/SharedObject.so src/SharedObject.cpp"
   },

@@ -7,7 +7,7 @@ const Struct = {
 };
 
 const Func = {
-    OutName: 'void OutName(Employee* emp)',
+    OutName: 'void ChangeEmpid(int* out_Empid)',
     OutputEmployeeName: 'void OutputEmployeeName(Employee* emp)'
 }
 
@@ -37,12 +37,16 @@ class Test{
     }
 
     TestCppChangeStruct(){
-        const outEmp = Ref.alloc(Ref.refType(this.lib.structs.Employee));
-        this.lib.interface.OutName(outEmp);
+        let empStruct = this.TestNewStruct();
 
-        const result = outEmp.deref();
+        let intPtr = Ref.alloc(Ref.types.int);
+        console.log(`empid: ${empStruct.empid}, intPtr: ${Ref.readCString(intPtr, 0)}`);
+
+        this.lib.interface.ChangeEmpid(empStruct.empid);
+
+        empStruct.empid = intPtr.deref();
         console.log(`After TestCppChangeStruct:`);
-        console.log(Ref.readCString(result.name,0));
+        console.log(`empid: ${empStruct.empid}`);
     }
 }
 
